@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/tsucchi/p5-Otogiri-Plugin.png?branch=master)](https://travis-ci.org/tsucchi/p5-Otogiri-Plugin)
 # NAME
 
 Otogiri::Plugin - make Otogiri to pluggable

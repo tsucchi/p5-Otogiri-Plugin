@@ -43,6 +43,8 @@
       },
       "runtime" : {
          "requires" : {
+            "Class::Load" : "0",
+            "Otogiri" : "0",
             "perl" : "5.008005"
          }
       },
@@ -53,5 +55,16 @@
       }
    },
    "release_status" : "unstable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/tsucchi/p5-Otogiri-Plugin/issues"
+      },
+      "homepage" : "https://github.com/tsucchi/p5-Otogiri-Plugin",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/tsucchi/p5-Otogiri-Plugin.git",
+         "web" : "https://github.com/tsucchi/p5-Otogiri-Plugin"
+      }
+   },
    "version" : "0.01"
 }
