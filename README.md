@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tsucchi/p5-Otogiri-Plugin.png?branch=master)](https://travis-ci.org/tsucchi/p5-Otogiri-Plugin)
+[![Build Status](https://travis-ci.org/tsucchi/p5-Otogiri-Plugin.png?branch=master)](https://travis-ci.org/tsucchi/p5-Otogiri-Plugin) [![Coverage Status](https://coveralls.io/repos/tsucchi/p5-Otogiri-Plugin/badge.png?branch=master)](https://coveralls.io/r/tsucchi/p5-Otogiri-Plugin?branch=master)
 # NAME
 
 Otogiri::Plugin - make Otogiri to pluggable
