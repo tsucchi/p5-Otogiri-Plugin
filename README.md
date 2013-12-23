@@ -9,13 +9,34 @@ Otogiri::Plugin - make Otogiri to pluggable
     use Otogiri::Plugin;
     my $db = Otogiri->new( connect_info => ["dbi:SQLite:dbname=$dbfile", '', ''] );
     Otogiri::load_plugin('UsefulPlugin');
-    $db->useful_method;
+    $db->useful_method; #derived from UsefulPlugin
 
 
 
 # DESCRIPTION
 
 Otogiri::Plugin provides [Teng](http://search.cpan.org/perldoc?Teng)\-like plugin function to [Otogiri](http://search.cpan.org/perldoc?Otogiri).
+
+# METHODS
+
+## $class->load\_plugin($plugin\_name, $opt)
+
+Load plugin to Otogiri or subclss. This method is exported to Otogiri or it's subclass(not to Otogiri::Plugin namespace).
+By default, plugins are loaded from Otorigi::Plugin::$plugin\_name namespace. If '+' is specified before $plugin\_name, 
+plugins are loaded specified package name. for example,
+
+    Otogiri::load_plugin('UsefulPlugin');          # loads Otogiri::Plugin::UsefulPlugin
+    Otogiri::load_plugin('+Some::Useful::Plugin'); # loads Some::Useful::Plugin
+
+You can use alias method name like this,
+
+    Otogiri::load_plugin('UsefulPlugin', { 
+        alias => {
+            very_useful_method_but_has_so_long_name => 'very_useful_method', 
+        }
+    });
+
+In this case, plugin provides `very_useful_method_but_has_so_long_name`, but you can access `very_useful_method`
 
 # LICENSE
 
