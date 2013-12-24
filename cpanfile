@@ -1,4 +1,4 @@
-requires 'Class::Load';
+requires 'Module::Load';
 requires 'Otogiri';
 requires 'perl', '5.008005';
 

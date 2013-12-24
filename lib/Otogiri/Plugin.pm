@@ -6,12 +6,12 @@ use warnings;
 our $VERSION = "0.01";
 
 use Otogiri;
-use Class::Load;
+use Module::Load;
 
-sub load_plugin { #this code is taken from Teng's load_plugin
+sub load_plugin { #this code is taken from Teng/SQL::Maker's load_plugin
     my ($class, $pkg, $opt) = @_;
     $pkg = $pkg =~ s/^\+// ? $pkg : "Otogiri::Plugin::$pkg";
-    Class::Load::load_class($pkg);
+    Module::Load::load($pkg);
 
     $class = ref($class) if ref($class);
 
