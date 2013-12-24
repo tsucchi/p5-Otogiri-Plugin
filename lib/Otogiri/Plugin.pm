@@ -56,7 +56,7 @@ Otogiri::Plugin provides L<Teng>-like plugin function to L<Otogiri>.
 
 =head2 $class->load_plugin($plugin_name, $opt)
 
-Load plugin to Otogiri or subclss. This method is exported to Otogiri or it's subclass(not to Otogiri::Plugin namespace).
+Load plugin to Otogiri or subclass. This method is exported to Otogiri or it's subclass(not to Otogiri::Plugin namespace).
 By default, plugins are loaded from Otorigi::Plugin::$plugin_name namespace. If '+' is specified before $plugin_name, 
 plugins are loaded specified package name. for example,
 

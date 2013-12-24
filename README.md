@@ -21,7 +21,7 @@ Otogiri::Plugin provides [Teng](http://search.cpan.org/perldoc?Teng)\-like plugi
 
 ## $class->load\_plugin($plugin\_name, $opt)
 
-Load plugin to Otogiri or subclss. This method is exported to Otogiri or it's subclass(not to Otogiri::Plugin namespace).
+Load plugin to Otogiri or subclass. This method is exported to Otogiri or it's subclass(not to Otogiri::Plugin namespace).
 By default, plugins are loaded from Otorigi::Plugin::$plugin\_name namespace. If '+' is specified before $plugin\_name, 
 plugins are loaded specified package name. for example,
 
