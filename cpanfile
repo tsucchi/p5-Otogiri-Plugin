@@ -1,5 +1,5 @@
 requires 'Module::Load';
-requires 'Otogiri';
+requires 'Otogiri', '0.06';
 requires 'perl', '5.008005';
 
 on configure => sub {
