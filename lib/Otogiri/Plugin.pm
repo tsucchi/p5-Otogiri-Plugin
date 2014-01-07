@@ -13,7 +13,8 @@ sub load_plugin { #this code is taken from Teng/SQL::Maker's load_plugin
     $pkg = $pkg =~ s/^\+// ? $pkg : "Otogiri::Plugin::$pkg";
     Module::Load::load($pkg);
 
-    $class = ref($class) if ref($class);
+    $class = ref($class)     if ref($class);
+    $class = 'DBIx::Otogiri' if ( $class eq 'Otogiri' );
 
     my $alias = delete $opt->{alias} || +{};
     {
@@ -26,7 +27,8 @@ sub load_plugin { #this code is taken from Teng/SQL::Maker's load_plugin
     $pkg->init($class, $opt) if $pkg->can('init');
 }
 
-*Otogiri::load_plugin = \&load_plugin;
+*Otogiri::load_plugin       = \&load_plugin;
+*DBIx::Otogiri::load_plugin = \&load_plugin;
 
 
 
