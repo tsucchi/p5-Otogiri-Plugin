@@ -46,7 +46,7 @@ Otogiri::Plugin - make Otogiri to pluggable
     use Otogiri;
     use Otogiri::Plugin;
     my $db = Otogiri->new( connect_info => ["dbi:SQLite:dbname=$dbfile", '', ''] );
-    Otogiri::load_plugin('UsefulPlugin');
+    Otogiri->load_plugin('UsefulPlugin');
     $db->useful_method; #derived from UsefulPlugin
 
 
@@ -62,12 +62,12 @@ Load plugin to Otogiri or subclass. This method is exported to Otogiri or it's s
 By default, plugins are loaded from Otorigi::Plugin::$plugin_name namespace. If '+' is specified before $plugin_name, 
 plugins are loaded specified package name. for example,
 
-    Otogiri::load_plugin('UsefulPlugin');          # loads Otogiri::Plugin::UsefulPlugin
-    Otogiri::load_plugin('+Some::Useful::Plugin'); # loads Some::Useful::Plugin
+    Otogiri->load_plugin('UsefulPlugin');          # loads Otogiri::Plugin::UsefulPlugin
+    Otogiri->load_plugin('+Some::Useful::Plugin'); # loads Some::Useful::Plugin
 
 You can use alias method name like this,
 
-    Otogiri::load_plugin('UsefulPlugin', { 
+    Otogiri->load_plugin('UsefulPlugin', { 
         alias => {
             very_useful_method_but_has_so_long_name => 'very_useful_method', 
         }
