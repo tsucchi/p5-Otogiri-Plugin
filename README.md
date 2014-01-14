@@ -15,7 +15,7 @@ Otogiri::Plugin - make Otogiri to pluggable
 
 # DESCRIPTION
 
-Otogiri::Plugin provides [Teng](https://metacpan.org/pod/Teng)\-like plugin function to [Otogiri](https://metacpan.org/pod/Otogiri).
+Otogiri::Plugin provides [Teng](http://search.cpan.org/perldoc?Teng)\-like plugin function to [Otogiri](http://search.cpan.org/perldoc?Otogiri).
 
 # METHODS
 
