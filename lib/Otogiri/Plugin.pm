@@ -75,6 +75,45 @@ You can use alias method name like this,
 
 In this case, plugin provides C<very_useful_method_but_has_so_long_name>, but you can access C<very_useful_method>
 
+=head1 HOW TO MAKE YOUR PLUGIN
+
+To make Otogiri plugin is very simple. If you have experience to make Teng plugin, you can write also Otogiri plugin
+because making Otogiri plugin is almost same as making Teng plugin.
+
+To make your plugin is only following two steps.
+
+=head2 1. create package
+
+If you will ship your plugin to CPAN, recommended package namespace is C<Otogiri::Plugin::>. Or If you want to
+use your project(application)'s namespace, it is enable. See C<load_plugin()> section.
+
+    package Otogiri::Plugin::NewPlugin;
+    use strict;
+    use warnings;
+    1;
+
+=head2 2. add C<@EXPORT> and implement method you want to provide as this plugin
+
+    package Otogiri::Plugin::NewPlugin;
+    use strict;
+    use warnings;
+    our @EXPORT = qw(useful_method);
+
+    sub useful_method { #this method is exported to Otogiri as plugin
+        my ($self, $param_href, $table_name) = @_;
+        $self->_deflate_param($table_name, $param_href); # if you need to deflate
+        ...
+        my @rows = $rtn ? $self->_inflate_rows($table, @$rtn) : (); #if you need to inflate
+        return @rows;
+    }
+
+    sub _private_method {
+        my ($self, $param_href) = @_;
+        # this method is not exported to Otogiri because it's not included in @EXPORT
+        ...
+    }
+    1;
+
 =head1 LICENSE
 
 Copyright (C) Takuya Tsuchida.

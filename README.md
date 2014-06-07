@@ -11,11 +11,9 @@ Otogiri::Plugin - make Otogiri to pluggable
     Otogiri->load_plugin('UsefulPlugin');
     $db->useful_method; #derived from UsefulPlugin
 
-
-
 # DESCRIPTION
 
-Otogiri::Plugin provides [Teng](http://search.cpan.org/perldoc?Teng)\-like plugin function to [Otogiri](http://search.cpan.org/perldoc?Otogiri).
+Otogiri::Plugin provides [Teng](https://metacpan.org/pod/Teng)-like plugin function to [Otogiri](https://metacpan.org/pod/Otogiri).
 
 # METHODS
 
@@ -37,6 +35,45 @@ You can use alias method name like this,
     });
 
 In this case, plugin provides `very_useful_method_but_has_so_long_name`, but you can access `very_useful_method`
+
+# HOW TO MAKE YOUR PLUGIN
+
+To make Otogiri plugin is very simple. If you have experience to make Teng plugin, you can write also Otogiri plugin
+because making Otogiri plugin is almost same as making Teng plugin.
+
+To make your plugin is only following two steps.
+
+## 1. create package
+
+If you will ship your plugin to CPAN, recommended package namespace is `Otogiri::Plugin::`. Or If you want to
+use your project(application)'s namespace, it is enable. See `load_plugin()` section.
+
+    package Otogiri::Plugin::NewPlugin;
+    use strict;
+    use warnings;
+    1;
+
+## 2. add `@EXPORT` and implement method you want to provide as this plugin
+
+    package Otogiri::Plugin::NewPlugin;
+    use strict;
+    use warnings;
+    our @EXPORT = qw(useful_method);
+
+    sub useful_method { #this method is exported to Otogiri as plugin
+        my ($self, $param_href, $table_name) = @_;
+        $self->_deflate_param($table_name, $param_href); # if you need to deflate
+        ...
+        my @rows = $rtn ? $self->_inflate_rows($table, @$rtn) : (); #if you need to inflate
+        return @rows;
+    }
+
+    sub _private_method {
+        my ($self, $param_href) = @_;
+        # this method is not exported to Otogiri because it's not included in @EXPORT
+        ...
+    }
+    1;
 
 # LICENSE
 
