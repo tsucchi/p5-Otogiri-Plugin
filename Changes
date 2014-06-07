@@ -3,6 +3,7 @@ Revision history for Perl extension Otogiri-Plugin
 {{$NEXT}}
 
     - add document HOW TO MAKE YOUR PLUGIN
+    - requires latest Otogiri(0.12). this version is fixed deflate bug
 
 0.02 2014-01-15T01:34:05Z
 

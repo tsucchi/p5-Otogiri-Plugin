@@ -45,7 +45,7 @@
       "runtime" : {
          "requires" : {
             "Module::Load" : "0",
-            "Otogiri" : "0.06",
+            "Otogiri" : "0.12",
             "perl" : "5.008005"
          }
       },
